@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Cortador de Vídeo</title>
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <div class="container">
+       <h1>Cortador de Vídeo</h1>
+       
+       <form id="videoForm" action="/process.php" method="post" enctype="multipart/form-data">
+           <div class="form-group">
+               <div class="file-input-wrapper" id="dropZone">
+                   <input type="file" name="video" id="video" accept="video/*" required>
+                   <div class="file-input-label">
+                       <svg class="upload-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                       </svg>
+                       <p>Arraste e solte seu vídeo aqui</p>
+                       <p>ou</p>
+                       <button type="button" class="select-file-btn">Selecione um arquivo</button>
+                       <span class="file-name"></span>
+                   </div>
+               </div>
+           </div>
+
+           <div class="preview-container">
+               <video id="preview" controls></video>
+               <div class="timeline-container">
+                   <div class="timeline">
+                       <div class="timeline-progress"></div>
+                       <div class="timeline-slider">
+                           <div class="timeline-handle start"></div>
+                           <div class="timeline-handle end"></div>
+                           <div class="timeline-selection"></div>
+                       </div>
+                   </div>
+                   <div class="timeline-time">00:00:00</div>
+               </div>
+           </div>
+
+           <div class="time-inputs">
+               <div class="form-group">
+                   <label for="inicio">Início:</label>
+                   <div class="input-wrapper">
+                       <input type="text" name="inicio" id="inicio" placeholder="00:00:00" required 
+                              pattern="^([0-1]?\d|2[0-3]):[0-5]\d:[0-5]\d$">
+                       <div class="error">Formato inválido. Use hh:mm:ss</div>
+                   </div>
+               </div>
+
+               <div class="form-group">
+                   <label for="fim">Fim:</label>
+                   <div class="input-wrapper">
+                       <input type="text" name="fim" id="fim" placeholder="00:00:00" required 
+                              pattern="^([0-1]?\d|2[0-3]):[0-5]\d:[0-5]\d$">
+                       <div class="error">Formato inválido. Use hh:mm:ss</div>
+                   </div>
+               </div>
+           </div>
+
+           <div class="progress-container">
+               <div class="progress-bar">
+                   <div class="progress-fill"></div>
+                   <div class="progress-text">0%</div>
+               </div>
+               <div class="progress-status"></div>
+           </div>
+
+           <button type="submit" class="submit-btn">
+               <span class="btn-text">Cortar Vídeo</span>
+               <div class="btn-spinner"></div>
+           </button>
+       </form>
+   </div>
+
+   <script src="script.js"></script>
+</body>
+</html>

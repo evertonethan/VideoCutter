@@ -1,0 +1,6 @@
+php_value upload_max_filesize 10G
+php_value post_max_size 10G
+php_value memory_limit 10G
+php_value max_execution_time 7200
+php_value max_input_time 7200
+LimitRequestBody 10737418240

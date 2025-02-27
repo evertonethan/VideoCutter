@@ -1,0 +1,362 @@
+/* Base Styles */
+:root {
+   --primary: #2563eb;
+   --primary-dark: #1d4ed8;
+   --error: #dc2626;
+   --success: #059669;
+   --bg: #f0f2f5;
+   --text: #1a1a1a;
+   --text-secondary: #4b5563;
+   --border: #e5e7eb;
+}
+
+body {
+   font-family: system-ui, -apple-system, sans-serif;
+   background: var(--bg);
+   color: var(--text);
+   margin: 0;
+   min-height: 100vh;
+   padding: 20px;
+}
+
+.container {
+   max-width: 800px;
+   margin: 0 auto;
+   padding: 20px;
+}
+
+h1 {
+   text-align: center;
+   color: var(--text);
+   font-size: 2rem;
+   margin-bottom: 2rem;
+}
+
+#videoForm {
+   background: white;
+   padding: 2rem;
+   border-radius: 12px;
+   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.form-group {
+   margin-bottom: 1.5rem;
+}
+
+.form-group label {
+   display: block;
+   margin-bottom: 0.5rem;
+   color: var(--text-secondary);
+   font-weight: 500;
+}
+
+.file-input-wrapper {
+   position: relative;
+   border: 2px dashed var(--border);
+   border-radius: 12px;
+   padding: 2.5rem 1.5rem;
+   text-align: center;
+   cursor: pointer;
+   transition: all 0.2s;
+   background: rgba(37,99,235,0.02);
+}
+
+.file-input-wrapper:hover,
+.file-input-wrapper.highlight {
+   border-color: var(--primary);
+   background: rgba(37,99,235,0.05);
+}
+
+.file-input-wrapper input[type="file"] {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   opacity: 0;
+   cursor: pointer;
+}
+
+.upload-icon {
+   color: var(--primary);
+   margin-bottom: 1rem;
+}
+
+.select-file-btn {
+   background: var(--primary);
+   color: white;
+   border: none;
+   padding: 0.5rem 1rem;
+   border-radius: 6px;
+   margin-top: 1rem;
+   font-size: 0.875rem;
+   cursor: pointer;
+   transition: background 0.2s;
+}
+
+.select-file-btn:hover {
+   background: var(--primary-dark);
+}
+
+.file-name {
+   display: block;
+   margin-top: 0.5rem;
+   color: var(--text-secondary);
+}
+
+.preview-container {
+   margin: 1.5rem 0;
+   display: none;
+}
+
+#preview {
+   width: 100%;
+   border-radius: 8px;
+   margin-bottom: 1rem;
+}
+
+.timeline-container {
+   background: #f3f4f6;
+   padding: 1rem;
+   border-radius: 8px;
+}
+
+.timeline {
+   position: relative;
+   height: 8px;
+   background: #d1d5db;
+   border-radius: 4px;
+   margin: 1rem 0;
+}
+
+.timeline-progress,
+.timeline-selection {
+   position: absolute;
+   height: 100%;
+   border-radius: 4px;
+}
+
+.timeline-progress {
+   background: var(--primary);
+   opacity: 0.5;
+}
+
+.timeline-selection {
+   background: rgba(37,99,235,0.2);
+}
+
+.timeline-handle {
+   position: absolute;
+   width: 16px;
+   height: 16px;
+   background: var(--primary);
+   border-radius: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   cursor: ew-resize;
+   transition: transform 0.2s;
+}
+
+.time-inputs {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 1rem;
+}
+
+.input-wrapper input {
+   width: 100%;
+   padding: 0.75rem;
+   border: 2px solid var(--border);
+   border-radius: 8px;
+   font-size: 1rem;
+   transition: all 0.2s;
+}
+
+.input-wrapper input:focus {
+   border-color: var(--primary);
+   outline: none;
+   box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+
+.progress-container {
+   margin: 1.5rem 0;
+   display: none;
+}
+
+.progress-bar {
+   background: #f3f4f6;
+   border-radius: 8px;
+   padding: 4px;
+   position: relative;
+   overflow: hidden;
+}
+
+.progress-fill {
+   background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+   height: 24px;
+   border-radius: 4px;
+   width: 0%;
+   transition: width 0.3s ease;
+}
+
+.submit-btn {
+   width: 100%;
+   padding: 0.875rem;
+   background: var(--primary);
+   color: white;
+   border: none;
+   border-radius: 8px;
+   font-size: 1rem;
+   font-weight: 500;
+   cursor: pointer;
+   transition: background 0.2s;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0.5rem;
+}
+
+.submit-btn:hover {
+   background: var(--primary-dark);
+}
+
+.btn-spinner {
+   display: none;
+   width: 20px;
+   height: 20px;
+   border: 2px solid rgba(255,255,255,0.3);
+   border-top-color: white;
+   border-radius: 50%;
+   animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+   to { transform: rotate(360deg); }
+}
+
+@media (max-width: 640px) {
+   .time-inputs {
+       grid-template-columns: 1fr;
+   }
+   
+   .container {
+       padding: 10px;
+   }
+   
+   #videoForm {
+       padding: 1.5rem;
+   }
+}
+
+
+
+
+
+
+
+
+.download-btn {
+    display: block;
+    background: var(--success);
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 12px;
+    transition: background 0.2s;
+}
+
+.download-btn:hover {
+    background: #047857;
+}
+
+
+
+
+
+
+.new-cut-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.new-cut-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.new-cut-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.new-cut-btn svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s ease;
+}
+
+.new-cut-btn:hover svg {
+    transform: scale(1.1);
+}
+
+.new-cut-btn span {
+    font-weight: 500;
+}
+
+/* Efeito de foco acessível */
+.new-cut-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+
+/* Desabilitado */
+.new-cut-btn:disabled {
+    background-color: #9CA3AF;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Animação sutil ao aparecer */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.new-cut-btn {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Estilo para dispositivos móveis */
+@media (max-width: 640px) {
+    .new-cut-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .new-cut-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+}
